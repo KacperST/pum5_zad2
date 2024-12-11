@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.pum5_zad2.WeatherViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#f5f5f5"
+        android:gravity="top"> <!-- Do not center the whole layout -->
+
+        <!-- Top Header (Purple) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="28dp"
+            android:paddingBottom="16dp"
+            android:gravity="center"
+            android:background="#6200EE">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Weather App"
+                android:textSize="24sp"
+                android:textColor="#FFFFFF"
+                android:fontFamily="sans-serif-medium"
+                android:padding="16dp" />
+        </LinearLayout>
+
+        <!-- Search Bar -->
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:queryHint="City name"
+            android:iconifiedByDefault="false"
+            android:padding="12dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
+            android:background="#FFFFFD"
+            android:elevation="4dp" />
+
+        <!-- Weather Info Container (Center only the weather info) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+           android:layout_marginBottom="32dp">
+
+        <TextView
+            android:id="@+id/cityName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.weather.city}"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:gravity="center" /> <!-- Center text horizontally -->
+
+        <TextView
+            android:id="@+id/temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(viewModel.weather.temperature)}"
+            android:textSize="64sp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center" /> <!-- Center text horizontally -->
+
+            <!-- Add Text View here to display description -->
+
+
+    </LinearLayout>
+    </LinearLayout>
+</layout>
